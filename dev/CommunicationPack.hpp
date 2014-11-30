@@ -1,29 +1,30 @@
-#ifndef _AICUP_DEV_COMMUNICATION_CLASS_H_
-#define _AICUP_DEV_COMMUNICATION_CLASS_H_
+#ifndef _AICUP_DEV_COMMUNICATIONPACK_CLASS_H_
+#define _AICUP_DEV_COMMUNICATIONPACK_CLASS_H_
 
 #include <string>
 
+#include "../sdk/Communication.hpp"
 #include "../sdk/JsonSerializableAbstract.hpp"
 
 namespace AICup {
 
     namespace Dev {
 
-        class Communication : public SDK::JsonSerializableAbstract
+        class CommunicationPack : public SDK::JsonSerializableAbstract
         {
         public:
-            Communication();
+            CommunicationPack();
 
-            virtual ~Communication();
+            virtual ~CommunicationPack();
             virtual void Serialize(Json::Value& root);
             virtual void Deserialize(Json::Value& root);
 
         public:
             int _communicationInt;
-            float _communicationFloat;
+            double _communicationDouble;
             std::string _communicationString;
             bool _communicationtBool;
         };
     }
 }
-#endif //_AICUP_DEV_COMMUNICATION_CLASS_H_
+#endif //_AICUP_DEV_COMMUNICATIONPACK_CLASS_H_

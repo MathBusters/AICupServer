@@ -1,6 +1,8 @@
 #ifndef _AICUP_SDK_COMMUNICATION_CLASS_H_
 #define _AICUP_SDK_COMMUNICATION_CLASS_H_
 
+#include "JsonSerializableAbstract.hpp"
+#include "../core/GameMessage.hpp"
 
 namespace AICup {
 
@@ -9,9 +11,11 @@ namespace AICup {
         class Communication
         {
         public:
+           static bool Serialize(JsonSerializableAbstract* pack, Core::GameMessage& output);
+           static bool Deserialize(JsonSerializableAbstract* pack, Core::GameMessage& input);
 
-//            void serializePack(const struct welcomePacket &, signed char *);
-//            signed char * deserializePack(signed char *, struct welcomePacket &);
+        private:
+           Communication() {}
         };
     }
 }

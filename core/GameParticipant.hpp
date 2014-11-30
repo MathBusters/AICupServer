@@ -13,6 +13,5 @@ namespace AICup {
             virtual void Deliver(const GameMessage& msg) = 0;
         };
     }
-
 }
 #endif //_CORE_GAMEPARTICIPANT_CLASS_H_

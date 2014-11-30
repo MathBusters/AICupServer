@@ -30,8 +30,7 @@ void GameServer::StartAccept()
 void GameServer::AcceptHandler(GameSessionPtr session,
                    const boost::system::error_code &error)
 {
-    if (!error)
-    {
+    if (!error) {
         session->Start();
     }
 

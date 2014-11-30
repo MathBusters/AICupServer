@@ -10,7 +10,7 @@ namespace AICup {
         class JsonSerializableAbstract
         {
         public:
-            virtual ~JsonSerializableAbstract( void ) {}
+            virtual ~JsonSerializableAbstract() {}
             virtual void Serialize(Json::Value& root) =0;
             virtual void Deserialize(Json::Value& root) =0;
         };
