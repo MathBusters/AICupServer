@@ -1,10 +1,10 @@
-#ifndef _GAME_CLASS_H_
-#define _GAME_CLASS_H_
+#ifndef _DEV_GAME_CLASS_H_
+#define _DEV_GAME_CLASS_H_
 
 #include <set>
 #include <boost/asio.hpp>
 
-#include "core/GameBattlefield.hpp"
+#include "../core/GameBattlefield.hpp"
 
 namespace AICup {
 
@@ -25,4 +25,4 @@ namespace AICup {
             Core::GameMessageQueue _recentMsgs;
         };
 }
-#endif //_GAME_CLASS_H_
+#endif //_DEV_GAME_CLASS_H_

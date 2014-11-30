@@ -1,7 +1,7 @@
 #ifndef _AICUP_SDK_JSONSERIALIZABLEABSTRACT_CLASS_H_
 #define _AICUP_SDK_JSONSERIALIZABLEABSTRACT_CLASS_H_
 
-#include <json/json.h>
+#include <jsoncpp/json/json.h>
 
 namespace AICup {
 

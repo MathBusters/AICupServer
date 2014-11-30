@@ -7,9 +7,9 @@
 
 #include "AICupApp.hpp"
 
-#include "core/GameServer.hpp"
+#include "./core/GameServer.hpp"
 
-#include "Game.hpp"
+#include "./dev/Game.hpp"
 
 using namespace std;
 using namespace boost::asio;
