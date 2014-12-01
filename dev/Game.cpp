@@ -25,16 +25,17 @@ void Game::Join(GameParticipantPtr participant)
     _participants.insert(participant);
 }
 
-/*
 void Game::Leave(GameParticipantPtr participant)
 {
     _participants.erase(participant);
 }
-*/
 
 void Game::Deliver(const GameMessage &msg)
 {
+    std::cout << "Message from user: " << msg.BodyLength() << std::endl;
+    /*
     for_each(_participants.begin(), _participants.end(),
              boost::bind(&GameParticipant::Deliver, _1, boost::ref(msg)));
+    */
 }
 

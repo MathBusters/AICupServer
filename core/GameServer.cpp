@@ -11,7 +11,7 @@ using namespace AICup::Core;
 
 GameServer::GameServer(boost::asio::io_service &io_service,
                        const tcp::endpoint &endpoint,
-                       GameBattlefield battlefield = GameBattlefield())
+                       GameBattlefield &battlefield)
     : _io_service(io_service),
       _acceptor(io_service, endpoint),
       _battlefield(battlefield)

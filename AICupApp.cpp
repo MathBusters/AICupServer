@@ -22,7 +22,6 @@ using namespace AICup::Core;
 
 AICupApp::AICupApp(int port) : _port(port)
 {
-
 }
 
 AICupApp::~AICupApp()

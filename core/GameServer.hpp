@@ -16,7 +16,7 @@ namespace AICup {
         public:
             GameServer(boost::asio::io_service &io_service,
                        const boost::asio::ip::tcp::endpoint &endpoint,
-                       GameBattlefield battlefield);
+                       GameBattlefield &battlefield);
 
             void StartAccept();
 
@@ -24,7 +24,7 @@ namespace AICup {
         private:
             boost::asio::io_service &_io_service;
             boost::asio::ip::tcp::acceptor _acceptor;
-            GameBattlefield _battlefield;
+            GameBattlefield &_battlefield;
         };
     }
 }

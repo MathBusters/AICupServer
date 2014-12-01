@@ -16,11 +16,11 @@ namespace AICup {
         public:
             GameBattlefield(std::string name  = "Abstract");
 
-            void Join(GameParticipantPtr participant);
+            virtual void Join(GameParticipantPtr participant);
 
-            void Leave(GameParticipantPtr participant);
+            virtual void Leave(GameParticipantPtr participant);
 
-            void Deliver(const GameMessage &msg);
+            virtual void Deliver(const GameMessage &msg);
 
             std::string GetName() const;
 
