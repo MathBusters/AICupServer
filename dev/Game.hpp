@@ -17,7 +17,7 @@ namespace AICup {
 
             void Leave(Core::GameParticipantPtr participant);
 
-            void Deliver(const Core::GameMessage &msg);
+            void Deliver(const Core::GameMessage &msg, GameParticipantPtr participant);
 
         private:
             std::set<Core::GameParticipantPtr> _participants;

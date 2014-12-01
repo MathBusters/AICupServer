@@ -26,10 +26,12 @@ void GameBattlefield::Leave(GameParticipantPtr participant)
     _participants.erase(participant);
 }
 
-void GameBattlefield::Deliver(const GameMessage &msg)
+void GameBattlefield::Deliver(const GameMessage &msg, GameParticipantPtr participant)
 {
+    /*
     for_each(_participants.begin(), _participants.end(),
              boost::bind(&GameParticipant::Deliver, _1, boost::ref(msg)));
+    */
 }
 
 

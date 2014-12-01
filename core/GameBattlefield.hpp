@@ -20,7 +20,7 @@ namespace AICup {
 
             virtual void Leave(GameParticipantPtr participant);
 
-            virtual void Deliver(const GameMessage &msg);
+            virtual void Deliver(const GameMessage &msg, GameParticipantPtr participant);
 
             std::string GetName() const;
 

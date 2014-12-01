@@ -30,7 +30,7 @@ void Game::Leave(GameParticipantPtr participant)
     _participants.erase(participant);
 }
 
-void Game::Deliver(const GameMessage &msg)
+void Game::Deliver(const GameMessage &msg, GameParticipantPtr participant)
 {
     std::cout << "Message from user: " << msg.BodyLength() << std::endl;
     /*
