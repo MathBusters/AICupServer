@@ -13,6 +13,7 @@ using namespace boost::asio::ip;
 
 using namespace AICup;
 using namespace AICup::Core;
+using namespace AICup::Dev;
 
 //Вставьте здесь название своей игры
 Game::Game() : GameBattlefield("Game Implementation") {}
@@ -32,7 +33,11 @@ void Game::Leave(GameParticipantPtr participant)
 
 void Game::Deliver(const GameMessage &msg, GameParticipantPtr participant)
 {
-    std::cout << "Message from user: " << msg.BodyLength() << std::endl;
+    //Взаимодействие с использованием служебного пакета данных, передаваемых в формате JSON
+    CommunicationPack pack;
+    SDK::Communication::Deserialize(&pack, msg);
+
+    std::cout << "Message from user: " << msg.Body() << std::endl;
     /*
     for_each(_participants.begin(), _participants.end(),
              boost::bind(&GameParticipant::Deliver, _1, boost::ref(msg)));

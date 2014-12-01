@@ -7,7 +7,6 @@
 #include "../sdk/JsonSerializableAbstract.hpp"
 
 namespace AICup {
-
     namespace Dev {
 
         class CommunicationPack : public SDK::JsonSerializableAbstract
@@ -15,7 +14,7 @@ namespace AICup {
         public:
             CommunicationPack();
 
-            virtual ~CommunicationPack();
+            virtual ~CommunicationPack() {}
             virtual void Serialize(Json::Value& root);
             virtual void Deserialize(Json::Value& root);
 

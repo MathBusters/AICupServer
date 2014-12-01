@@ -64,7 +64,7 @@ void GameSession::ReadBodyHandler(const boost::system::error_code &error)
 {
     if (!error)
     {
-        _battlefield.Deliver(_readMsg);
+        _battlefield.Deliver(_readMsg, shared_from_this());
         boost::asio::async_read(_socket,
                                 boost::asio::buffer(_readMsg.Data(), GameMessage::HeaderLength),
                                 boost::bind(&GameSession::ReadHeaderHandler, shared_from_this(),

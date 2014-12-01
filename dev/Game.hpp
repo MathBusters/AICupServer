@@ -7,6 +7,7 @@
 #include "../core/GameBattlefield.hpp"
 
 namespace AICup {
+    namespace Dev {
 
         class Game : public Core::GameBattlefield
         {
@@ -17,12 +18,13 @@ namespace AICup {
 
             void Leave(Core::GameParticipantPtr participant);
 
-            void Deliver(const Core::GameMessage &msg, GameParticipantPtr participant);
+            void Deliver(const Core::GameMessage &msg, Core::GameParticipantPtr participant);
 
         private:
             std::set<Core::GameParticipantPtr> _participants;
     //  enum { max_recent_msgs = 100 };
             Core::GameMessageQueue _recentMsgs;
         };
+    }
 }
 #endif //_DEV_GAME_CLASS_H_

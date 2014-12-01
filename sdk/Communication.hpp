@@ -12,7 +12,7 @@ namespace AICup {
         {
         public:
            static bool Serialize(JsonSerializableAbstract* pack, Core::GameMessage& output);
-           static bool Deserialize(JsonSerializableAbstract* pack, Core::GameMessage& input);
+           static bool Deserialize(JsonSerializableAbstract* pack, const Core::GameMessage &input);
 
         private:
            Communication() {}

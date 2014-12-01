@@ -17,6 +17,7 @@ using namespace boost::asio::ip;
 
 using namespace AICup;
 using namespace AICup::Core;
+using namespace AICup::Dev;
 
 //typedef boost::shared_ptr<ip::tcp::socket> socket_ptr;
 

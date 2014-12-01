@@ -1,15 +1,10 @@
-#include "GameSession.hpp"
+#include "GameMessage.hpp"
 
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 
-#include <boost/bind.hpp>
-
 using namespace std;
-using namespace boost::asio;
-using namespace boost::asio::ip;
-
 using namespace AICup;
 using namespace AICup::Core;
 

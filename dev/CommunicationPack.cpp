@@ -4,6 +4,11 @@ using namespace AICup;
 using namespace AICup::Core;
 using namespace AICup::Dev;
 
+
+CommunicationPack::CommunicationPack() : JsonSerializableAbstract()
+{
+}
+
 void CommunicationPack::Serialize(Json::Value& root)
 {
     // serialize primitives

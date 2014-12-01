@@ -30,7 +30,7 @@ bool Communication::Serialize(JsonSerializableAbstract* pack, Core::GameMessage&
     return true;
 }
 
-bool Communication::Deserialize(JsonSerializableAbstract* pack, Core::GameMessage& input)
+bool Communication::Deserialize(JsonSerializableAbstract* pack, const Core::GameMessage& input)
 {
     if (pack == NULL) {
 

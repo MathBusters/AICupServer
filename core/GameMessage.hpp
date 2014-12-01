@@ -1,6 +1,7 @@
 #ifndef _CORE_GAMEMESSAGE_CLASS_H_
 #define _CORE_GAMEMESSAGE_CLASS_H_
 
+#include <cstdlib>
 #include <deque>
 
 namespace AICup {
