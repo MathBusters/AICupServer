@@ -23,13 +23,13 @@ Game::Game() : GameBattlefield("Game Implementation") {}
 
 void Game::Join(GameParticipantPtr participant)
 {
-    std::cout << "Client join." << std::endl;
+    std::cout << "Client joined." << std::endl;
     _participants.insert(participant);
 }
 
 void Game::Leave(GameParticipantPtr participant)
 {
-    std::cout << "Client leave." << std::endl;
+    std::cout << "Client left." << std::endl;
     _participants.erase(participant);
 }
 

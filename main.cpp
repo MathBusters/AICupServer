@@ -9,7 +9,7 @@ using namespace AICup;
 
 int main(int argc, const char* argv[])
 {
-    cout << "PvP or Zassal Server!" << endl;
+    cout << "AI Cup Server (Dev)." << endl;
 
     if(argc < 2) {
         AICupApp cup(2517);
