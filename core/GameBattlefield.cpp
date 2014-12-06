@@ -18,7 +18,7 @@ void GameBattlefield::Join(GameParticipantPtr participant)
 {
     _participants.insert(participant);
     for_each(_recentMsgs.begin(), _recentMsgs.end(),
-             boost::bind(&GameParticipant::Deliver, participant, _1));
+             boost::bind(&GameSession::Deliver, participant, _1));
 }
 
 void GameBattlefield::Leave(GameParticipantPtr participant)
@@ -28,10 +28,10 @@ void GameBattlefield::Leave(GameParticipantPtr participant)
 
 void GameBattlefield::Deliver(const GameMessage &msg, GameParticipantPtr participant)
 {
-    /*
+
     for_each(_participants.begin(), _participants.end(),
-             boost::bind(&GameParticipant::Deliver, _1, boost::ref(msg)));
-    */
+             boost::bind(&GameSession::Deliver, _1, boost::ref(msg)));
+
 }
 
 

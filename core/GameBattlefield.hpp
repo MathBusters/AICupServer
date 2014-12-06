@@ -4,12 +4,12 @@
 #include <set>
 #include <boost/asio.hpp>
 
-#include "GameParticipant.hpp"
+#include "../dev/Player.hpp"
 
 namespace AICup {
 
     namespace Core {
-        typedef boost::shared_ptr<GameParticipant> GameParticipantPtr;
+        typedef boost::shared_ptr<Dev::Player> GameParticipantPtr;
 
         class GameBattlefield
         {
@@ -28,9 +28,7 @@ namespace AICup {
             std::string _name;
 
         private:
-
             std::set<GameParticipantPtr> _participants;
-    //  enum { max_recent_msgs = 100 };
             GameMessageQueue _recentMsgs;
         };
     }

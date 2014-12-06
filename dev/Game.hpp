@@ -6,6 +6,8 @@
 
 #include "../core/GameBattlefield.hpp"
 
+#include "Player.hpp"
+
 namespace AICup {
     namespace Dev {
 
@@ -22,7 +24,6 @@ namespace AICup {
 
         private:
             std::set<Core::GameParticipantPtr> _participants;
-    //  enum { max_recent_msgs = 100 };
             Core::GameMessageQueue _recentMsgs;
         };
     }

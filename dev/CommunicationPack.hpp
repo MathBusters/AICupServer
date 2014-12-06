@@ -19,10 +19,10 @@ namespace AICup {
             virtual void Deserialize(Json::Value& root);
 
         public:
-            int _communicationInt;
-            double _communicationDouble;
-            std::string _communicationString;
-            bool _communicationtBool;
+            int CommunicationInt;
+            double CommunicationDouble;
+            std::string CommunicationString;
+            bool CommunicationtBool;
         };
     }
 }

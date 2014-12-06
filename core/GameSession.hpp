@@ -2,24 +2,29 @@
 #define _CORE_GAMESESSION_CLASS_H_
 
 #include <boost/asio.hpp>
-#include <boost/enable_shared_from_this.hpp>
 
-#include "GameParticipant.hpp"
-#include "GameBattlefield.hpp"
 #include "GameMessage.hpp"
 
 namespace AICup {
     namespace Core {
+
+        class GameBattlefield;
+
         class GameSession
-            : public GameParticipant,
-            public boost::enable_shared_from_this<GameSession>
         {
         public:
             GameSession(boost::asio::io_service &io_service, GameBattlefield &battlefield);
 
+            virtual ~GameSession();
+
             boost::asio::ip::tcp::socket& Socket();
 
             void Start();
+
+            virtual void Join() = 0;
+            virtual void Leave() = 0;
+            virtual void Action() = 0;
+            virtual boost::shared_ptr<GameSession> SharedFromThis() = 0;
 
             void Deliver(const GameMessage &msg);
 
@@ -29,7 +34,7 @@ namespace AICup {
 
             void WriteHandler(const boost::system::error_code &error);
 
-        private:
+        protected: //private
             boost::asio::ip::tcp::socket _socket;
             GameBattlefield &_battlefield;
             GameMessage _readMsg;

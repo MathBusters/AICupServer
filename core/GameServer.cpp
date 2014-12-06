@@ -21,10 +21,10 @@ GameServer::GameServer(boost::asio::io_service &io_service,
 
 void GameServer::StartAccept()
 {
-    GameSessionPtr newSession(new GameSession(_io_service, _battlefield));
+    GameSessionPtr newSession(new Dev::Player(_io_service, _battlefield));
     _acceptor.async_accept(newSession->Socket(),
                            boost::bind(&GameServer::AcceptHandler, this, newSession,
-                           boost::asio::placeholders::error));
+                                       boost::asio::placeholders::error));
 }
 
 void GameServer::AcceptHandler(GameSessionPtr session,

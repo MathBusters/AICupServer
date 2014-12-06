@@ -12,17 +12,17 @@ CommunicationPack::CommunicationPack() : JsonSerializableAbstract()
 void CommunicationPack::Serialize(Json::Value& root)
 {
     // serialize primitives
-    root["CommunicationInt"] = _communicationInt;
-    root["CommunicationDouble"] = _communicationDouble;
-    root["CommunicationsString"] = _communicationString;
-    root["CommunicationBool"] = _communicationtBool;
+    root["CommunicationInt"] = CommunicationInt;
+    root["CommunicationDouble"] = CommunicationDouble;
+    root["CommunicationsString"] = CommunicationString;
+    root["CommunicationBool"] = CommunicationtBool;
 }
 
 void CommunicationPack::Deserialize(Json::Value& root)
 {
     // deserialize primitives
-    _communicationInt = root.get("CommunicationInt", 0).asInt();
-    _communicationDouble = root.get("CommunicationDouble", 0.0).asDouble();
-    _communicationString = root.get("CommunicationsString", "").asString();
-    _communicationtBool = root.get("CommunicationBool", false).asBool();
+    CommunicationInt = root.get("CommunicationInt", 0).asInt();
+    CommunicationDouble = root.get("CommunicationDouble", 0.0).asDouble();
+    CommunicationString = root.get("CommunicationsString", "").asString();
+    CommunicationtBool = root.get("CommunicationBool", false).asBool();
 }

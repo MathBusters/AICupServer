@@ -16,6 +16,8 @@ GameSession::GameSession(boost::asio::io_service &io_service, GameBattlefield &b
 {
 }
 
+GameSession::~GameSession() {}
+
 tcp::socket& GameSession::Socket()
 {
 
@@ -24,10 +26,12 @@ tcp::socket& GameSession::Socket()
 
 void GameSession::Start()
 {
-    _battlefield.Join(shared_from_this());
+    Join();
+//    _battlefield.Join(shared_from_this());
     boost::asio::async_read(_socket,
                             boost::asio::buffer(_readMsg.Data(), GameMessage::HeaderLength),
-                            boost::bind(&GameSession::ReadHeaderHandler, shared_from_this(),
+/*                            boost::bind(&GameSession::ReadHeaderHandler, shared_from_this(),*/
+                            boost::bind(&GameSession::ReadHeaderHandler, SharedFromThis(),
                                         boost::asio::placeholders::error));
 }
 
@@ -40,7 +44,8 @@ void GameSession::Deliver(const GameMessage &msg)
         boost::asio::async_write(_socket,
                                  boost::asio::buffer(_writeMsgs.front().Data(),
                                                      _writeMsgs.front().Length()),
-                                 boost::bind(&GameSession::WriteHandler, shared_from_this(),
+/*                                 boost::bind(&GameSession::WriteHandler, shared_from_this(), */
+                                 boost::bind(&GameSession::WriteHandler, SharedFromThis(),
                                              boost::asio::placeholders::error));
     }
 }
@@ -51,12 +56,14 @@ void GameSession::ReadHeaderHandler(const boost::system::error_code &error)
     {
         boost::asio::async_read(_socket,
                                 boost::asio::buffer(_readMsg.Body(), _readMsg.BodyLength()),
-                                boost::bind(&GameSession::ReadBodyHandler, shared_from_this(),
+/*                                boost::bind(&GameSession::ReadBodyHandler, shared_from_this(), */
+                                boost::bind(&GameSession::ReadBodyHandler, SharedFromThis(),
                                             boost::asio::placeholders::error));
     }
     else
     {
-        _battlefield.Leave(shared_from_this());
+        Leave();
+        //_battlefield.Leave(shared_from_this());
     }
 }
 
@@ -64,16 +71,19 @@ void GameSession::ReadBodyHandler(const boost::system::error_code &error)
 {
     if (!error)
     {
-        _battlefield.Deliver(_readMsg, shared_from_this());
+        Action();
+        //_battlefield.Deliver(_readMsg, shared_from_this());
         boost::asio::async_read(_socket,
                                 boost::asio::buffer(_readMsg.Data(), GameMessage::HeaderLength),
-                                boost::bind(&GameSession::ReadHeaderHandler, shared_from_this(),
+/*                                boost::bind(&GameSession::ReadHeaderHandler, shared_from_this(),*/
+                                boost::bind(&GameSession::ReadHeaderHandler, SharedFromThis(),
                                             boost::asio::placeholders::error));
 
     }
     else
     {
-        _battlefield.Leave(shared_from_this());
+        Leave();
+        //_battlefield.Leave(shared_from_this());
     }
 
 }
@@ -88,12 +98,15 @@ void GameSession::WriteHandler(const boost::system::error_code &error)
             boost::asio::async_write(_socket,
                                      boost::asio::buffer(_writeMsgs.front().Data(),
                                                          _writeMsgs.front().Length()),
-                                     boost::bind(&GameSession::WriteHandler, shared_from_this(),
+/*                                     boost::bind(&GameSession::WriteHandler, shared_from_this(),*/
+                                     boost::bind(&GameSession::WriteHandler, SharedFromThis(),
                                                  boost::asio::placeholders::error));
         }
     }
     else
     {
-        _battlefield.Leave(shared_from_this());
+        Leave();
+        //_battlefield.Leave(shared_from_this());
     }
 }
+

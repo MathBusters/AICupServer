@@ -39,7 +39,7 @@ void Game::Deliver(const GameMessage &msg, GameParticipantPtr participant)
     CommunicationPack pack;
     SDK::Communication::Deserialize(&pack, msg);
 
-    std::cout << "Message from user: " << msg.Body() << std::endl;
+    std::cout << "Message from participant: " << msg.Body() << std::endl;
     participant->Deliver(boost::ref(msg));
     /*
     for_each(_participants.begin(), _participants.end(),

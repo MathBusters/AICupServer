@@ -4,12 +4,13 @@
 #include <boost/asio.hpp>
 #include <boost/shared_ptr.hpp>
 
-#include "GameSession.hpp"
 #include "GameBattlefield.hpp"
+
+#include "../dev/Player.hpp"
 
 namespace AICup {
     namespace Core {
-        typedef boost::shared_ptr<GameSession> GameSessionPtr;
+        typedef boost::shared_ptr<Dev::Player> GameSessionPtr;
 
         class GameServer
         {
